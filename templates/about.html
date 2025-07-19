@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'images/about-img.png' %}" alt="About Us" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h1 class="about_taital">About Icecream</h1>
+                <p class="about_text">We serve the freshest and most delicious ice creams with premium ingredients.</p>
+               
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

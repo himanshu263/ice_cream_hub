@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog - Testimonials{% endblock %}
+
+{% block content %}
+<div class="testimonial_section layout_padding my-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+                <h1 class="testimonial_taital">Blog</h1>
+            </div>
+        </div>
+        {% for testimonial in testimonials %}
+<div class="carousel-item {% if forloop.first %}active{% endif %} text-center">
+    <p class="testimonial_text">“{{ testimonial.text }}”</p>
+    <h4 class="client_name">{{ testimonial.name }}</h4>
+    <div class="client_img">
+        <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
+    </div>
+</div>
+{% endfor %}
+        
+    </div>  
+</div>
+{% endblock %}

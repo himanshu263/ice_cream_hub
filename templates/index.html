@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- Banner Section -->
+<div class="banner_section layout_padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="banner_taital">Ice Cream</h1>
+                <p class="banner_text">Indulge in our delicious handcrafted ice creams made with love.</p>
+                <div class="started_text"><a href="#">Order Now</a></div>
+            </div>
+            <div class="col-md-6">
+                <div class="banner_img"><img src="{% static 'images/banner-img.png' %}" alt="Banner"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Section -->
+<div class="about_section layout_padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="about_img"><img src="{% static 'images/about-img.png' %}" alt="About"></div>
+            </div>
+            <div class="col-md-6">
+                <h1 class="about_taital">About Our Ice Cream</h1>
+                <p class="about_text">We are passionate about serving unique, freshly made ice cream flavors using only premium ingredients.</p>
+                <div class="read_bt_1"><a href="#">Read More</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Ice Cream Section -->
+<div class="cream_section layout_padding">
+    <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h1 class="cream_taital">Our Featured Ice Cream</h1>
+            <p class="cream_text">tempor incididunt ut labore et dolore magna aliqua</p>
+         </div>
+      </div>
+        <div class="row">
+            {% for icecream in icecreams %}
+            <div class="col-md-4 mb-4">
+                <div class="cream_box">
+                    <div class="cream_img"><img src="{{ icecream.image.url }}" alt="{{ icecream.name }}"></div>
+                    <div class="price_text">${{ icecream.price }}</div>
+                    <h6 class="strawberry_text">{{ icecream.name }}</h6>
+                    <div class="cart_bt"><a href="#">Add To Cart</a></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div class="services_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="text-center mb-4">
+            <h1 class="services_taital">Our Ice Cream Services</h1>
+            <p class="services_text">Delightful experiences beyond just ice cream.</p>
+        </div>
+      </div>
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-4 mb-4">
+                <div class="services_box">
+                    <h5 class="tasty_text">
+                        <span class="icon_img"><img src="{{ service.icon.url }}" alt="{{ service.title }}"></span> 
+                        {{ service.title }}
+                    </h5>
+                    <p class="lorem_text">{{ service.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="testimonial_section layout_padding">
+    <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h1 class="testimonial_taital">Testimonial</h1>
+         </div>
+      </div>
+        <div class="testimonial_box">
+            <div id="main_slider" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for testimonial in testimonials %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="text-center px-5">
+                            <p class="testimonial_text">“{{ testimonial.text }}”</p>
+                            <h4 class="client_name">{{ testimonial.name }}</h4>
+                            <div class="client_img">
+                                <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}" class="rounded-circle" width="100">
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

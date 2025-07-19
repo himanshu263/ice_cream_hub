@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Services - Ice Cream{% endblock %}
+
+{% block content %}
+<div class="services_section layout_padding ">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h1 class="services_taital">Our Ice Cream Services</h1>
+            <p class="services_text">tempor incididunt ut labore et dolore magna aliqua</p>
+         </div>
+      </div>
+      <div class="services_section_2 mb-3">
+         <div class="row">
+            {% for service in services %}
+            <div class="col-md-4 mb-3">
+               <div class="services_box">
+                  <h5 class="tasty_text">
+                     <span class="icon_img">
+                        <img src="{{ service.icon.url }}" alt="{{ service.title }}">
+                     </span> {{ service.title }}
+                  </h5>
+                  <p class="lorem_text">{{ service.description }}</p>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

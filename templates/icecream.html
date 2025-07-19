@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ice Cream - Our Specialties{% endblock %}
+
+{% block content %}
+<div class="cream_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <h1 class="cream_taital">Our Featured Ice Cream</h1>
+            <p class="cream_text">Discover our best selling flavors, crafted with love!</p>
+         </div>
+      </div>
+      <div class="cream_section_2">
+         <div class="row">
+            {% for item in icecreams %}
+            <div class="col-md-4 mb-4">
+               <div class="cream_box">
+                  <div class="cream_img">
+                     <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                  </div>
+                  <div class="price_text">${{ item.price }}</div>
+                  <h6 class="strawberry_text">{{ item.name }}</h6>
+                  <div class="cart_bt"><a href="#">Add To Cart</a></div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+
+<div class="contact_section layout_padding my-5">
+
+   
+    
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4">
+            <div class="contact_main">
+               <h1 class="contact_taital">Contact Us</h1>
+               <form method="POST" action="{% url 'contact' %}">
+                  {% csrf_token %}
+                  <div class="form-group">
+                     <input type="text" class="email-bt" placeholder="Name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                     <input type="email" class="email-bt" placeholder="Email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" class="email-bt" placeholder="Phone Number" name="phone" required>
+                  </div>
+                  <div class="form-group">
+                     <textarea class="massage-bt" placeholder="Message" rows="5" name="message" required></textarea>
+                  </div>
+                  <div class="main_bt"><button type="submit" class="btn btn-primary">SEND</button></div>
+               </form>
+            </div>
+         </div>
+         <div class="col-md-8">
+            <div class="location_text">
+               <ul class="list-unstyled">
+                  <li class="mb-2"><i class="fa fa-map-marker mr-2"></i> Noia, India</li>
+                  <li class="mb-2"><i class="fa fa-phone mr-2"></i> +91 9999999999</li>
+                  <li class="mb-2"><i class="fa fa-envelope mr-2"></i> Example123@gmail.com</li>
+              </ul>
+            </div>
+            <div class="mail_main">
+               <h3 class="newsletter_text">Newsletter</h3>
+               <div class="form-group d-flex">
+                  <input type="email" class="form-control mr-2" placeholder="Enter Your Email" name="newsletter">
+                  <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+               </div>
+            </div>
+            <div class="footer_social_icon mt-4">
+               <ul class="d-flex list-unstyled">
+                  <li><a href="#" class="mx-2"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#" class="mx-2"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" class="mx-2"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="#" class="mx-2"><i class="fa fa-instagram"></i></a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
