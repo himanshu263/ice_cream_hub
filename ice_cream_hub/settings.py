@@ -10,8 +10,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-your-key'
 
+DEBUG = False
+
 ALLOWED_HOSTS = ['ice-cream-hub.onrender.com', '127.0.0.1', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://ice-cream-hub.onrender.com"
+]
 
 INSTALLED_APPS = [
 
