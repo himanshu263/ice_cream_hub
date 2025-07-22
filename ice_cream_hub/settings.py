@@ -12,11 +12,17 @@ SECRET_KEY = 'django-insecure-your-key'
 
 DEBUG = False
 
+if DEBUG:
+    STATICFILES_DIRS = [BASE_DIR / 'static']
+
+    
 ALLOWED_HOSTS = ['ice-cream-hub.onrender.com', '127.0.0.1', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = [
     "https://ice-cream-hub.onrender.com"
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 INSTALLED_APPS = [
 
@@ -31,7 +37,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', 
+     'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
