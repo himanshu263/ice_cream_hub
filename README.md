@@ -30,8 +30,8 @@ Ice_cream/
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/himanshu263/django-ice-cream.git
-cd django-ice-cream
+git clone https://github.com/himanshu263/ice_cream_hub.git
+cd ice_cream_hub
 
 	2.	Create Virtual Environment
 
@@ -76,11 +76,6 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 
 ⸻
 
-📜 License
-
-MIT License
-
-⸻
 
 📧 Contact
 
