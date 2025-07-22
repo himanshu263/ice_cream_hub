@@ -16,7 +16,7 @@ ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
-    "unfold",
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -88,90 +88,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-# ✅ Unfold Admin Customization
-from django.templatetags.static import static
-from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
-
-UNFOLD = {
-    "SITE_TITLE": 'Ice Cream Hub',
-    "SITE_HEADER": 'Ice Cream Hub Admin',
-    "SITE_URL": "/",
-    "SITE_ICON": {
-        "light": lambda request: static("images/logo.png"),
-        "dark": lambda request: static("images/logo.png"),
-    },
-    "SITE_LOGO": {
-        "light": lambda request: static("images/logo.png"),
-        "dark": lambda request: static("images/logo.png"),
-    },
-    "SITE_SYMBOL": "icecream",
-    "SITE_FAVICONS": [
-        {
-            "rel": "icon",
-            "sizes": "32x32",
-            "type": "image/jpeg",
-            "href": lambda request: static("images/logo.png"),
-        },
-    ],
-    "SHOW_HISTORY": True,
-    "SHOW_VIEW_ON_SITE": True,
-
-    "COLORS": {
-        "primary": {
-            "50": "250 245 255",
-            "100": "243 232 255",
-            "200": "233 213 255",
-            "300": "216 180 254",
-            "400": "192 132 252",
-            "500": "168 85 247",
-            "600": "147 51 234",
-            "700": "126 34 206",
-            "800": "107 33 168",
-            "900": "88 28 135",
-            "950": "59 7 100",
-        },
-    },
-
-    "SIDEBAR": {
-    "show_search": True,
-    "show_all_applications": True,
-    "navigation": [
-        {
-            "title": _("Main Navigation"),
-            "separator": True,
-            "collapsible": True,
-            "items": [
-                {
-                    "title": _("Dashboard"),
-                    "icon": "home",
-                    "link": reverse_lazy("admin:index"),
-                    "badge": "Admin",
-                    "permission": lambda request: request.user.is_superuser,
-                },
-                {
-                    "title": _("Ice Creams"),
-                    "icon": "home",  # Valid icon
-                    "link": reverse_lazy("admin:shop_icecream_changelist"),
-                },
-                {
-                    "title": _("Contacts"),
-                    "icon": "contact_mail",
-                    "link": reverse_lazy("admin:shop_contact_changelist"),
-                },
-                {
-                    "title": _("Testimonials"),
-                    "icon": "chat",
-                    "link": reverse_lazy("admin:shop_testimonial_changelist"),
-                },
-                {
-                    "title": _("Services"),
-                    "icon": "contact_mail",
-                    "link": reverse_lazy("admin:shop_service_changelist"),
-                },
-            ],
-        },
-    ],
-},
-}

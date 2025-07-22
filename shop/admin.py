@@ -1,23 +1,23 @@
 from django.contrib import admin
-from .models import Contact, IceCream, Testimonial , Service
-from unfold.admin import ModelAdmin as UnfoldModelAdmin
+from .models import Contact, IceCream, Testimonial, Service
+
 
 @admin.register(Contact)
-class ContactAdmin(UnfoldModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone')
 
+
 @admin.register(IceCream)
-class IceCreamAdmin(UnfoldModelAdmin):
+class IceCreamAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
 
 
 @admin.register(Testimonial)
-class TestimonialAdmin(UnfoldModelAdmin):
+class TestimonialAdmin(admin.ModelAdmin):
     list_display = ('name', 'text')
     search_fields = ('name', 'text')
 
-    from .models import Service
 
 @admin.register(Service)
-class ServiceAdmin(UnfoldModelAdmin):
+class ServiceAdmin(admin.ModelAdmin):
     list_display = ('title',)
